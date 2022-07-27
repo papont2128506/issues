@@ -71,12 +71,7 @@
                             <textField id="titleField" property="title"/>
                             <textArea id="descriptionField" property="description" rows="5"/>
                             <comboBox id="typeField" property="type"/>
-                            <entityPicker id="authorField" property="author">
-                                <actions>
-                                    <action id="entityLookup" type="entity_lookup"/>
-                                    <action id="entityClear" type="entity_clear"/>
-                                </actions>
-                            </entityPicker>
+                            <textField id="authorField" property="author"/>
                         </column>
                     </form>
                 </scrollBox>
