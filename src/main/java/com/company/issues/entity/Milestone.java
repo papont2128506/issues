@@ -11,17 +11,13 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.UUID;
 
 @JmixEntity
-@Table(name = "ISSUE", indexes = {
-        @Index(name = "IDX_ISSUE_AUTHOR", columnList = "AUTHOR_ID"),
-        @Index(name = "IDX_ISSUE_MILESTONE", columnList = "MILESTONE_ID")
-})
+@Table(name = "MILESTONE")
 @Entity
-public class Issue {
+public class Milestone {
     @JmixGeneratedValue
     @Column(name = "ID", nullable = false)
     @Id
@@ -59,63 +55,26 @@ public class Issue {
     private Date lastModifiedDate;
 
     @InstanceName
-    @Column(name = "TITLE", nullable = false)
-    @NotNull
-    private String title;
+    @Column(name = "NAME")
+    private String name;
 
-    @Column(name = "DESCRIPTION")
-    @Lob
-    private String description;
+    @Column(name = "OPEN_")
+    private Boolean open;
 
-    @Column(name = "TYPE_")
-    private Integer type;
-
-    @JoinColumn(name = "AUTHOR_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private User author;
-
-    @JoinColumn(name = "MILESTONE_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Milestone milestone;
-
-    public Milestone getMilestone() {
-        return milestone;
+    public Boolean getOpen() {
+        return open;
     }
 
-    public void setMilestone(Milestone milestone) {
-        this.milestone = milestone;
+    public void setOpen(Boolean open) {
+        this.open = open;
     }
 
-    public User getAuthor() {
-        return author;
+    public String getName() {
+        return name;
     }
 
-    public void setAuthor(User author) {
-        this.author = author;
-    }
-
-    public IssueType getType() {
-        return type == null ? null : IssueType.fromId(type);
-    }
-
-    public void setType(IssueType type) {
-        this.type = type == null ? null : type.getId();
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Date getLastModifiedDate() {

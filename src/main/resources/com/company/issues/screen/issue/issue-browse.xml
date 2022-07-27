@@ -7,6 +7,7 @@
                     class="com.company.issues.entity.Issue">
             <fetchPlan extends="_base">
                 <property name="author" fetchPlan="_base"/>
+                <property name="milestone" fetchPlan="_base"/>
             </fetchPlan>
             <loader id="issuesDl">
                 <query>
@@ -18,6 +19,7 @@
                   class="com.company.issues.entity.Issue">
             <fetchPlan extends="_base">
                 <property name="author" fetchPlan="_base"/>
+                <property name="milestone" fetchPlan="_base"/>
             </fetchPlan>
             <loader/>
         </instance>
@@ -50,6 +52,7 @@
                         <column id="description"/>
                         <column id="type"/>
                         <column id="author"/>
+                        <column id="milestone"/>
                     </columns>
                     <simplePagination/>
                     <buttonsPanel id="buttonsPanel"
@@ -72,6 +75,7 @@
                             <textArea id="descriptionField" property="description" rows="5"/>
                             <comboBox id="typeField" property="type"/>
                             <textField id="authorField" property="author"/>
+                            <entityPicker id="milestoneField" property="milestone"/>
                         </column>
                     </form>
                 </scrollBox>
